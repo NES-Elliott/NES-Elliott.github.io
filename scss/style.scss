@@ -1,0 +1,11 @@
+$primary-font: Arial, Helvetica, sans-serif;
+$main-color: #6d6d6d;
+$primary-color: #394f49;
+$secondary-color: #f28c83;
+
+body {
+  background-color: $main-color;
+  font-family: $primary-font;
+  font-size: 62.5%;
+  line-height: 1.6;
+}
