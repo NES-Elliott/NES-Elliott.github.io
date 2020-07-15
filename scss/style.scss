@@ -1,33 +1,4 @@
-$primary-fontfamily: Arial, Helvetica, sans-serif;
-$primary-white: #fff;
-$primary-orange: #f28c83;
-
-@mixin transition($value) {
-  transition: all $value ease-out;
-  -webkit-transition: all $value ease-out;
-  -moz-transition: all $value ease-out;
-}
-
-%parallax {
-  height: 100vh;
-  background: url('/media/images/bg-portfolio.png');
-  background-attachment: fixed;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-}
-%primary-colors {
-  background-color: #394f49;
-  color: #fff;
-}
-%secondary-colors {
-  background-color: #1f2c37;
-  color: #fff;
-}
-%nav-colors {
-  background-color: #353535;
-  color: #6d6d6d;
-}
+@import 'config';
 
 :root {
   font-size: 62.5%;
@@ -45,14 +16,10 @@ body {
   overflow: auto;
 }
 
-.main-header {
-  @extend %parallax;
-}
 .main-nav {
   height: 10vh;
   box-shadow: 0 0 0px transparent;
   background: transparent;
-  color: $primary-white;
   @include transition(0.3s);
 
   .container {
@@ -76,22 +43,27 @@ body {
     text-shadow: 0px 0px 3px #000;
     text-transform: uppercase;
   }
-  .main-nav__menu {
+  &__menu {
     display: flex;
     list-style-type: none;
   }
-  .main-nav__menu-item {
+  &__menu-item {
     padding: 15px;
   }
-  .main-nav__menu-item-link {
+  &__menu-item-link {
     color: $primary-white;
     font-size: 1.6rem;
     text-decoration: none;
-    @include transition(0.3s)
+    @include transition(0.3s);
+
+    &:hover,
+    &:active,
+    &:focus {
+      color: $primary-orange;
+    }
   }
-  .main-nav__menu-item-link:hover,
-  .main-nav__menu-item-link:active,
-  .main-nav__menu-item-link:focus {
-    color: $primary-orange;
-  }
+}
+
+.main-header {
+  @extend %parallax;
 }
