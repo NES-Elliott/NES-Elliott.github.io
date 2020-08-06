@@ -16,31 +16,31 @@ function clearProjects() {
 function populateProjects() {
   projectsHeader.classList.add('projects__header')
   projectsContainer.classList.add('projects__container')
-  // projectsDiv.appendChild(projectsHeader)
+  projectsDiv.appendChild(projectsHeader)
   projectsDiv.appendChild(projectsContainer)
 }
 // Projects Object
 const projects = [
   {
-    title: "Project 1",
+    title: "Dinero",
     image: '',
-    description: "Some project description here...",
-    site: '',
-    code: ''
+    description: "A full-stack finance tracking app to track expenses and incomes.",
+    site: 'https://dinero-mern.herokuapp.com/',
+    code: 'https://github.com/NES-Elliott/Dinero'
   },
   {
-    title: "Project 2",
+    title: "Sorting Algorithm Visualizer",
     image: '',
-    description: "Some project description here...",
+    description: "A tool that allows for the visualization of popular sorting algorithms.",
     site: '',
-    code: ''
+    code: 'https://github.com/NES-Elliott/Sorting-Algorithm-Visualization-Tool'
   },
   {
-    title: "Project 3",
+    title: "Crypto Catalog",
     image: '',
-    description: "Some project description here...",
+    description: "A CLI app that uses an API to keep track of cryptocurrencies.",
     site: '',
-    code: ''
+    code: 'https://github.com/NES-Elliott/CryptoCat'
   }
 ]
 
@@ -49,7 +49,9 @@ function createCard(cardObject) {
   card.classList.add('card')
   let cardPreview = document.createElement('div')
   cardPreview.classList.add('card__preview')
-  if (cardObject.image === "") cardPreview.classList.add('card__preview--no-img')
+  let cardImg = document.createElement('img')
+  cardImg.classList.add('card__img')
+  if (cardObject.image === '') cardPreview.classList.add('card__preview--no-img')
   let cardBody = document.createElement('div')
   cardBody.classList.add('card__body')
   let cardTitle = document.createElement('h5')
@@ -59,24 +61,27 @@ function createCard(cardObject) {
   let cardLinks = document.createElement('div')
   cardLinks.classList.add('card__links')
   let cardViewSite = document.createElement('a')
-  cardViewSite.classList.add('card__view-site')
+  if (cardObject.site != '') cardViewSite.classList.add('card__view-site')
   let cardViewCode = document.createElement('a')
-  cardViewCode.classList.add('card__view-code')
+  cardViewCode.classList.add('card__view-code')  
 
   card.appendChild(cardPreview)
+  if (cardObject.image != '') cardPreview.appendChild(cardImg)
   card.appendChild(cardBody)
   cardBody.appendChild(cardTitle)
   cardBody.appendChild(cardText)
   cardBody.appendChild(cardLinks)
-  cardLinks.appendChild(cardViewSite)
+  if (cardObject.site != '') cardLinks.appendChild(cardViewSite)
   cardLinks.appendChild(cardViewCode)
   projectsContainer.appendChild(card)
 
   cardTitle.innerHTML = cardObject.title
-  // set the href for the image
+  cardImg.src = cardObject.image
   cardText.innerHTML = cardObject.description
-  // set the href for site
-  // set the href for code
+  cardViewSite.href = cardObject.site
+  cardViewSite.setAttribute('target', '_blank')
+  cardViewCode.href = cardObject.code
+  cardViewCode.setAttribute('target', '_blank')
 }
 
 clearProjects()
