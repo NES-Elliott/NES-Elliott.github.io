@@ -32,7 +32,7 @@ const projects = [
     title: "Sorting Algorithm Visualizer",
     image: '',
     description: "A tool that allows for the visualization of popular sorting algorithms.",
-    site: '',
+    site: 'https://nes-elliott.github.io/Sorting-Algorithm-Visualization-Tool/',
     code: 'https://github.com/NES-Elliott/Sorting-Algorithm-Visualization-Tool'
   },
   {
