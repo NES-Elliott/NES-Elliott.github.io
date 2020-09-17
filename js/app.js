@@ -23,21 +23,21 @@ function populateProjects() {
 const projects = [
   {
     title: "Dinero",
-    image: '',
+    image: 'demo-dinero.png',
     description: "A full-stack finance tracking app to track expenses and incomes.",
     site: 'https://dinero-mern.herokuapp.com/',
     code: 'https://github.com/NES-Elliott/Dinero'
   },
   {
     title: "Sorting Algorithm Visualizer",
-    image: '',
+    image: 'demo-sortingalg.png',
     description: "A tool that allows for the visualization of popular sorting algorithms.",
     site: 'https://nes-elliott.github.io/Sorting-Algorithm-Visualization-Tool/',
     code: 'https://github.com/NES-Elliott/Sorting-Algorithm-Visualization-Tool'
   },
   {
     title: "Crypto Catalog",
-    image: '',
+    image: 'demo-cryptocat.png',
     description: "A CLI app that uses an API to keep track of cryptocurrencies.",
     site: '',
     code: 'https://github.com/NES-Elliott/CryptoCat'
@@ -76,7 +76,7 @@ function createCard(cardObject) {
   projectsContainer.appendChild(card)
 
   cardTitle.innerHTML = cardObject.title
-  cardImg.src = cardObject.image
+  cardImg.src = `media/images/${cardObject.image}`
   cardText.innerHTML = cardObject.description
   cardViewSite.href = cardObject.site
   cardViewSite.setAttribute('target', '_blank')
